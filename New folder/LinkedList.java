@@ -3,35 +3,20 @@ public class LinkedList {
     private Node head;
     private int nodeCount = 0;
 
-    private class Node {
-        private int data;
-        private Node next;
-
-        public Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-
-        public String toString() {
-            String str = "";
-            return str = str + data;
-        }
-    }
-
-    public void insert(int data) {
+    public void insert(Student data) {
         Node temp = new Node(data);
         nodeCount++;
 
         if (head == null) {
             head = temp;
         } else {
-            temp.next = head;
+            temp.setNext(head);
             head = temp;
 
         }
     }
 
-    public void append(int data) {
+    public void append(Student data) {
 
         Node temp = new Node(data);
         nodeCount++;
@@ -40,14 +25,14 @@ public class LinkedList {
             insert(data);
         } else {
             Node x = head;
-            while (x.next != null) {
-                x = x.next;
+            while (x.getNext() != null) {
+                x = x.getNext();
             }
-            x.next = temp;
+            x.setNext(temp);
         }
     }
 
-    public void insertByPosition(int data, int pos) {
+    public void insertByPosition(Student data, int pos) {
         if (pos == 1) {
             insert(data);
         } else if (pos == nodeCount + 1) {
@@ -61,11 +46,11 @@ public class LinkedList {
             Node it = head;
             int x = 1;
             while(x<pos-1){
-                it = it.next;
+                it = it.getNext();
                 x++;
             }
-            temp.next = it.next;
-            it.next = temp;
+            temp.setNext(it.getNext());
+            it.setNext(temp);
 
         }
 
@@ -76,8 +61,8 @@ public class LinkedList {
             System.out.println("Linked List is Empty");
         } else {
             Node x = head;
-            if (x.next != null) {
-                head = x.next;
+            if (x.getNext() != null) {
+                head = x.getNext();
                 nodeCount--;
             } else {
                 head = null;
@@ -91,8 +76,8 @@ public class LinkedList {
         Node itp = null;
         Node itn = it;
         while(it != null){
-            itn = it.next;
-            it.next = itp;
+            itn = it.getNext();
+            it.setNext(itp);
             itp = it;
             it = itn;
         }
@@ -107,7 +92,7 @@ public class LinkedList {
             Node x = head;
             while (x != null) {
                 str = str + " " + x + "-->";
-                x = x.next;
+                x = x.getNext();
             }
         }
         return str;
@@ -117,20 +102,13 @@ public class LinkedList {
     public static void main(String[] args) {
 
         LinkedList list = new LinkedList();
-        list.insert(10);
-        list.insert(20);
-        list.insert(30);
-        // System.out.println(list.nodeCount);
-        list.append(65);
-        list.append(75);
-        // System.out.println(list.nodeCount);
-        list.insert(50);
-        list.deleteFirst();
-        list.deleteFirst();
-        // System.out.println(list.nodeCount);
-        list.insertByPosition(45, 3);
-        System.out.println(list);
-        list.reverse();
+        Student stud1 = new Student(1, "Akash", "Dalvi");
+        list.insert(stud1);
+        Student stud2 = new Student(2, "Vaishnav", "Wagh");
+        list.insert(stud2);
+        Student stud3 = new Student(3, "Shubham", "Dalvi");
+        list.append(stud3);
+       
         System.out.println(list);
         
 
