@@ -4,11 +4,23 @@ public class Test {
 
     }
     public static void main(String[] args) {
-        int num1 = 10;
-        int num2 = 20;
+        
+        /*
+         1.searching 
+         2.traverse
+         3.sort  => ass  des
+         */
+        int num = 1;
 
-        String result = num1>num2  ?  "This is true"  :  "This is false";
-        System.out.println(result);
+        //   0  1  1  2  3  5  8  13  
+
+        for(int i=1;i<=10;i++){
+            if(i%2 != 0){
+                System.out.print(i+" ");
+            }
+        }
+      
+        
     }
     
 }

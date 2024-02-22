@@ -67,6 +67,25 @@ public class DoublyLinkedList {
             it = null;
         }
     }
+    public void deleteLast(){
+        if(head == null){
+            System.out.println("LL Is Empty");
+        }else if(head.next == null){
+            head = null;
+        } else{
+            Node it = head;
+            Node itp = null;
+
+            while (it.next != null) {
+                itp = it;
+                it = it.next;
+                
+            }
+            itp.next = null;
+            it.prev = null;
+            it = null;
+        }
+    }
     public static void main(String[] args) {
         
         DoublyLinkedList dll = new DoublyLinkedList();
@@ -77,6 +96,8 @@ public class DoublyLinkedList {
         dll.append(50);
         dll.deleteFirst();
         dll.deleteFirst();
+        dll.deleteLast();
+        
 
         System.out.println(dll);
     }
